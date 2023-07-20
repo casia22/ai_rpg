@@ -1,0 +1,4 @@
+repository "2d game@immorta1splay@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
