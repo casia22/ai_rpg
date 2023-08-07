@@ -21,37 +21,52 @@ public class ChatRoom : MonoBehaviour
     public bool chatRequest;
     [DisplayOnly]
     public bool isChatting;
-    [DisplayOnly]
-    public string words;
+    //[DisplayOnly]
+    //public string words;
     //can't see
     [HideInInspector]
     public bool getConv;
     public ReceiveConvFormat receiveConv = new ReceiveConvFormat();
     private bool changeMember;
     private GodsHand godsHand;
-
-
-    private async Task PrintWordsOneByOne()
+    [DisplayOnly]
+    public bool request_wait;
+    
+    
+    private IEnumerator PrintWordsOneByOne()
     {
-        await Task.Delay(TimeSpan.FromSeconds(0.4f));//对话开始准备时间
-        for(int i=0; i < receiveConv.lines.Count; i++)
+        yield return new WaitForSeconds(0.4f); // 对话开始准备时间
+
+        for (int i = 0; i < receiveConv.lines.Count; i++)
         {
-            if (getConv) break;//收到新的对话则退出，但好像没有什么效果
+            /*if (getConv)
+            {
+                Debug.Log("取消之前，重新生成！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+                break;
+            }*/
             var line = receiveConv.lines[i];
-            Debug.Log($"into2-{receiveConv.lines.Count}{line.words}");
             if (line.words == "") continue;
-            Speaker speaker = members[line.name];
-            if (speaker == null) continue;//防止人物乱入 or break
-            Text tx = speaker.tx; tx.text = "";
-            await Task.Delay(TimeSpan.FromSeconds(0.1f));//思考(空白时间)
+            Speaker speaker = null;
+            if (members.ContainsKey(line.name))
+            {
+                speaker = members[line.name];
+                Debug.Log($"{receiveConv.lines.Count}-{speaker.name}: {line.words}");
+            } 
+            else
+            {
+                Debug.Log($"跳过一个人物");
+                continue; // 防止人物乱入 or break
+            }
+            Text tx = speaker.tx;
+            tx.text = "";
+            yield return new WaitForSeconds(0.1f); // 思考(空白时间)
             if (tx != null)
             {
                 speaker.onSpeaking = true;
                 foreach (char c in line.words)
                 {
-                    //Debug.Log("into3");
                     tx.text += c;
-                    await Task.Delay(TimeSpan.FromSeconds(0.1f));
+                    yield return new WaitForSeconds(0.1f);
                 }
             }
             if (!line.action.Equals(default(ActionFormat)))
@@ -60,38 +75,61 @@ public class ChatRoom : MonoBehaviour
                 speaker.args = line.action.args;
             }
             godsHand.scene.ConfirmConversation(receiveConv.id, i);
-            await Task.Delay(TimeSpan.FromSeconds(0.5f));//保持时间
+            yield return new WaitForSeconds(0.5f); // 保持时间
             speaker.onSpeaking = false;
         }
         Debug.Log("out");
         receiveConv = new ReceiveConvFormat();
     }
-
+    
+    void recoverRequest()
+    {
+        request_wait = false;
+    }
+    void req()
+    {
+        if (members.Count > 0) chatRequest = true;
+    }
     // Start is called before the first frame update
     void Start()
     {
         godsHand = FindObjectOfType<GodsHand>();
+        InvokeRepeating("req", 180f,180f);
+        request_wait = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        membersName = new List<string>(members.Keys);
-        if (changeMember)
+        /*if (pre_test != test)
         {
-            if (members.Count > 2) chatRequest = true;
+            StopCoroutine("HHH");
+            pre_test = test;
+            StartCoroutine("HHH");
+        }
+        _=hhh(test);*/
+
+        membersName = new List<string>(members.Keys);
+        if (changeMember && !request_wait)
+        {
+            if (members.Count > 0) chatRequest = true;
             foreach (Speaker speaker in members.Values) speaker.tx.text = "";//清空泡泡
             changeMember = false;
+            request_wait = true;
+            CancelInvoke("recoverRequest");
+            Invoke("recoverRequest",3f);
         }
-        if (getConv && receiveConv.lines != null)
+        if (getConv && receiveConv.lines != null)//新的有效对话
         {
+            StopCoroutine("PrintWordsOneByOne");
             Debug.Log("into1");
-            words = receiveConv.lines[0].words;
+            //words = receiveConv.lines[0].words;
             isChatting = true;
             getConv = false;
-            PrintWordsOneByOne();
+            StartCoroutine("PrintWordsOneByOne");
         }
     }
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -102,6 +140,7 @@ public class ChatRoom : MonoBehaviour
             other_speaker.location = location; other_speaker.inRoom = true;
             UnityEngine.Debug.Log($"增加一个邻居：{other.gameObject}");
             changeMember = true;
+            if(request_wait) Debug.Log($"等待创建对话");
         }
     }
     private void OnTriggerExit2D(Collider2D other)

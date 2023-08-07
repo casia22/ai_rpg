@@ -2,7 +2,7 @@
 
 
 
-Conversation主要包含GodsHand.cs、ChatRoom.cs、Speaker.cs。其他代码(例如General.cs)则作为辅助，也可供后续游戏参考。
+Conversation主要包含GodsHand.cs、ChatRoom.cs、Speaker.cs。其他代码(例如RoomMaker.cs)则作为辅助，也可供后续游戏参考。
 
 
 
@@ -14,5 +14,6 @@ TODO：
 - [x] 与NPC-Engine整合
 - [ ] 代码优化与整合
 - [ ] 与具体游戏结合，人物动作的执行机制
+- [ ] 与带有Action的NPC-Engine整合
 
 

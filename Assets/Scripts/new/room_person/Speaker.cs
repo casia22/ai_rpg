@@ -11,7 +11,7 @@ public class Speaker : MonoBehaviour
     public string location;
     public Text tx=null;
     [DisplayOnly]
-    public bool wanaChat=true;
+    public bool wanaChat=true;//控制是否可以碰撞生成动态房间
     [DisplayOnly]
     public bool inRoom;
     [DisplayOnly]

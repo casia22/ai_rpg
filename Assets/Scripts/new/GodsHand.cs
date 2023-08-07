@@ -109,7 +109,7 @@ public class DialogScene
         string receivedData = "";
         while (!this.thread_stop)
         {
-            UnityEngine.Debug.Log("listening");
+            //UnityEngine.Debug.Log("listening");
             byte[] data = this.sock.Receive(ref localEndPoint);
             string packet = Encoding.UTF8.GetString(data); UnityEngine.Debug.LogFormat("get: {0}", packet);
             string[] parts = packet.Split('@');
@@ -117,14 +117,14 @@ public class DialogScene
             receivedData+=lastPart;
             if (receivedData.EndsWith("}"))
             {
-                UnityEngine.Debug.LogFormat("receivedData: {0}", receivedData);
+                //UnityEngine.Debug.LogFormat("receivedData: {0}", receivedData);
                 ReceiveConvFormat json_data = JsonUtility.FromJson<ReceiveConvFormat>(receivedData);
                 receivedData = ""; UnityEngine.Debug.LogFormat("receivedData: {0}", receivedData);
                 if (json_data.name == "inited") { UnityEngine.Debug.Log("Successful initialization."); continue; }
                 else
                 {
-                    UnityEngine.Debug.Log(json_data.location);
-                    foreach (LinesFormat line in json_data.lines) UnityEngine.Debug.Log(line.words);
+                    //UnityEngine.Debug.Log(json_data.location);
+                    //foreach (LinesFormat line in json_data.lines) UnityEngine.Debug.Log(line.words);
                     if (json_data.name == "conversation") { receiveConvs.Add(json_data); new_receive = true; }
                 }
                 /*}
@@ -136,7 +136,7 @@ public class DialogScene
                 }*/
             }
         }
-        UnityEngine.Debug.Log(this.thread_stop);
+        //UnityEngine.Debug.Log(this.thread_stop);
     }
 
     public void InitEngine()

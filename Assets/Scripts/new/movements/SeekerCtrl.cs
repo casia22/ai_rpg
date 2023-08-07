@@ -11,7 +11,7 @@ public class SeekerCtrl : MonoBehaviour
     public AIDestinationSetter dest_setter;
 
     private bool getHit=false;
-    private Vector3 vect;
+    private Vector3 turn_axis;
 
     void Start()
     {
@@ -22,29 +22,36 @@ public class SeekerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (getHit) getHit = Slow_Trans2D(2f, -(vect + transform.right));
-        if (speaker.action == "前往" || speaker.action == "move")
+        if (speaker.action != "对话" && speaker.action != "chat" && getHit)//被碰
         {
-            if(dest_setter.target == null || speaker.args != dest_setter.target.gameObject.GetComponent<Anchor>().name)
+            //getHit = Slow_Trans2D(2f, -(vect + transform.right));
+            getHit = Slow_Rotate2D(turn_axis, 60f, 0.6f);//若还没移动完则
+        }
+        if (speaker.action == "前往" || speaker.action == "move")//移动
+        {
+            if(dest_setter.target == null || speaker.args != dest_setter.target.gameObject.GetComponent<Anchor>().name)//如果speaker给了新目标
             {
                 foreach (GameObject an_obj in anchor_objs)
                 {
                     Anchor anchor = an_obj.GetComponent<Anchor>();
-                    if (anchor != null && anchor.name == speaker.args) dest_setter.target = an_obj.transform;
+                    if (anchor != null && anchor.name == speaker.args) dest_setter.target = an_obj.transform;//找到anchor
                 }
             }
+            speaker.wanaChat = false;//暂时，保证在移动中不会由于碰撞生成动态房间
         }
         else
         {
             dest_setter.target = null;
+            speaker.wanaChat = true;//暂时
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         getHit = true;
-        vect = collision.gameObject.transform.position - transform.position;
+        Vector3 vect = collision.gameObject.transform.position - transform.position;
         vect.Normalize();
+        turn_axis = vect + transform.position;
     }
 
     float len_sum = 0;
@@ -71,5 +78,23 @@ public class SeekerCtrl : MonoBehaviour
             return false;
         }
 
+    }
+
+    float time_sum = 0;
+    bool Slow_Rotate2D(Vector2 center, float angle, float time)
+    {
+
+        if (time_sum < time)
+        {
+            time_sum += Time.deltaTime;
+            transform.RotateAround(center, Vector3.forward, angle * Time.deltaTime / time);
+            transform.RotateAround(transform.position, Vector3.forward, -angle * Time.deltaTime / time);
+            return true;
+        }
+        else
+        {
+            time_sum = 0;
+            return false;
+        }
     }
 }

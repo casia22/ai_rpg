@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 109892288}
   - component: {fileID: 109892287}
   m_Layer: 0
-  m_Name: room2 (1)
+  m_Name: "\u74DC\u7530"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,14 +358,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: "\u74DC\u7530"
-  topic: "\u73B0\u5728\u7684\u60C5\u51B5\u662F\u897F\u95E8\u5E86\u5230\u6B66\u5927\u90CE\u5BB6\u505A\u5BA2\uFF0C\u6F58\u91D1\u83B2\u548C\u897F\u95E8\u5E86\u90FD\u60F3\u6740\u6389\u6B66\u5927\u90CE\uFF0C\u4F46\u4E8C\u4EBA\u90FD\u4E0D\u60F3\u8BA9\u6B66\u5927\u90CE\u77E5\u9053\uFF0C\u4ED6\u4EEC\u5E0C\u671B\u6B66\u5927\u90CE\u80FD\u6EDA\u51FA\u8FD9\u4E2A\u623F\u95F4\u5230\u738B\u5A46\u5BB6\uFF0C\u4ED6\u4EEC\u597D\u4E0B\u624B\u3002"
+  topic: "\u74DC\u7530\u7684\u74DC\u90FD\u719F\u900F\u4E86\u4E5F\u6CA1\u6709\u4EBA\u6765\u6536"
   interruptSpeech: 
   isDynamic: 0
   membersName: []
   chatRequest: 0
   isChatting: 0
-  words: 
   getConv: 0
+  request_wait: 0
 --- !u!61 &109892288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ Transform:
   m_Children:
   - {fileID: 1983553955}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &123624965
 GameObject:
@@ -820,8 +820,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.000089, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -8.144995, y: 0}
+  m_SizeDelta: {x: -11.670009, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &378376630
 MonoBehaviour:
@@ -926,63 +926,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &409501234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 409501236}
-  - component: {fileID: 409501235}
-  m_Layer: 0
-  m_Name: 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &409501235
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409501234}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!4 &409501236
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409501234}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.28, y: 4.42, z: 0}
-  m_LocalScale: {x: 2.575, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433349340
 GameObject:
@@ -5171,9 +5114,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 4
-  pickNextWaypointDist: 2
-  endReachedDistance: 3
+  slowdownDistance: 2.26
+  pickNextWaypointDist: 1.2
+  endReachedDistance: 1.34
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -5329,9 +5272,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 4
-  pickNextWaypointDist: 2
-  endReachedDistance: 3
+  slowdownDistance: 2.26
+  pickNextWaypointDist: 1.2
+  endReachedDistance: 1.34
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -5770,36 +5713,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6, y: 1.33}
   m_EdgeRadius: 0
---- !u!1 &851712368
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 851712369}
-  m_Layer: 0
-  m_Name: 1 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &851712369
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851712368}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.48, y: 6.23, z: 0}
-  m_LocalScale: {x: 0.6484494, y: 4.5159273, z: 1.0073}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852261515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6000,7 +5913,7 @@ GameObject:
   - component: {fileID: 974416661}
   - component: {fileID: 974416660}
   m_Layer: 0
-  m_Name: room1
+  m_Name: "\u6B66\u5927\u90CE\u5BB6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6019,14 +5932,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: "\u6B66\u5927\u90CE\u5BB6"
-  topic: "\u73B0\u5728\u7684\u60C5\u51B5\u662F\u897F\u95E8\u5E86\u5230\u6B66\u5927\u90CE\u5BB6\u505A\u5BA2\uFF0C\u6F58\u91D1\u83B2\u548C\u897F\u95E8\u5E86\u90FD\u60F3\u6740\u6389\u6B66\u5927\u90CE\uFF0C\u4F46\u4E8C\u4EBA\u90FD\u4E0D\u60F3\u8BA9\u6B66\u5927\u90CE\u77E5\u9053\uFF0C\u4ED6\u4EEC\u5E0C\u671B\u6B66\u5927\u90CE\u80FD\u6EDA\u51FA\u8FD9\u4E2A\u623F\u95F4\u5230\u738B\u5A46\u5BB6\uFF0C\u4ED6\u4EEC\u597D\u4E0B\u624B\u3002"
+  topic: "\u73B0\u5728\u7684\u60C5\u51B5\u662F\u897F\u95E8\u5E86\u5230\u6B66\u5927\u90CE\u5BB6\u505A\u5BA2\uFF0C\u6F58\u91D1\u83B2\u548C\u897F\u95E8\u5E86\u90FD\u60F3\u6740\u6389\u6B66\u5927\u90CE\uFF0C\u4F46\u4E8C\u4EBA\u90FD\u4E0D\u60F3\u8BA9\u6B66\u5927\u90CE\u77E5\u9053\uFF0C\u4ED6\u4EEC\u6B66\u5927\u90CE\u80FD\u8DDF\u7740\u4ED6\u4EEC\u5230\u90CA\u5916\u7684\u74DC\u7530\uFF0C\u4ED6\u4EEC\u597D\u4E0B\u624B\u3002"
   interruptSpeech: 
   isDynamic: 0
   membersName: []
   chatRequest: 0
   isChatting: 0
-  words: 
   getConv: 0
+  request_wait: 0
 --- !u!61 &974416661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6179,9 +6092,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 4
-  pickNextWaypointDist: 2
-  endReachedDistance: 3
+  slowdownDistance: 2.26
+  pickNextWaypointDist: 1.2
+  endReachedDistance: 1.34
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -6645,7 +6558,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 46.5
+  field of view: 48
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -21325,7 +21238,7 @@ GameObject:
   - component: {fileID: 1558211891}
   - component: {fileID: 1558211890}
   m_Layer: 0
-  m_Name: room2
+  m_Name: "\u738B\u5A46\u5BB6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21350,8 +21263,8 @@ MonoBehaviour:
   membersName: []
   chatRequest: 0
   isChatting: 0
-  words: 
   getConv: 0
+  request_wait: 0
 --- !u!61 &1558211891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21391,7 +21304,7 @@ Transform:
   m_Children:
   - {fileID: 1906793610}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1617450581
 GameObject:
@@ -21774,7 +21687,7 @@ GameObject:
   - component: {fileID: 1830969256}
   - component: {fileID: 1830969255}
   m_Layer: 0
-  m_Name: room2 (2)
+  m_Name: "\u5E7F\u573A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21793,14 +21706,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: "\u5E7F\u573A"
-  topic: "\u73B0\u5728\u7684\u60C5\u51B5\u662F\u897F\u95E8\u5E86\u5230\u6B66\u5927\u90CE\u5BB6\u505A\u5BA2\uFF0C\u6F58\u91D1\u83B2\u548C\u897F\u95E8\u5E86\u90FD\u60F3\u6740\u6389\u6B66\u5927\u90CE\uFF0C\u4F46\u4E8C\u4EBA\u90FD\u4E0D\u60F3\u8BA9\u6B66\u5927\u90CE\u77E5\u9053\uFF0C\u4ED6\u4EEC\u5E0C\u671B\u6B66\u5927\u90CE\u80FD\u6EDA\u51FA\u8FD9\u4E2A\u623F\u95F4\u5230\u738B\u5A46\u5BB6\uFF0C\u4ED6\u4EEC\u597D\u4E0B\u624B\u3002"
+  topic: "\u5E7F\u573A\u4E0A\u4EBA\u70DF\u7A00\u5C11\uFF0C\u5927\u5BB6\u90FD\u53BB\u54EA\u91CC\u4E86\uFF1F"
   interruptSpeech: 
   isDynamic: 0
   membersName: []
   chatRequest: 0
   isChatting: 0
-  words: 
   getConv: 0
+  request_wait: 0
 --- !u!61 &1830969256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21840,7 +21753,7 @@ Transform:
   m_Children:
   - {fileID: 1384030251}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1906793609
 GameObject:
@@ -22253,7 +22166,7 @@ GameObject:
   - component: {fileID: 2078470021}
   - component: {fileID: 2078470020}
   m_Layer: 0
-  m_Name: room4
+  m_Name: "\u8B66\u5C40"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22272,14 +22185,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: "\u8B66\u5C40"
-  topic: "\u73B0\u5728\u7684\u60C5\u51B5\u662F\u897F\u95E8\u5E86\u5230\u6B66\u5927\u90CE\u5BB6\u505A\u5BA2\uFF0C\u6F58\u91D1\u83B2\u548C\u897F\u95E8\u5E86\u90FD\u60F3\u6740\u6389\u6B66\u5927\u90CE\uFF0C\u4F46\u4E8C\u4EBA\u90FD\u4E0D\u60F3\u8BA9\u6B66\u5927\u90CE\u77E5\u9053\uFF0C\u4ED6\u4EEC\u5E0C\u671B\u6B66\u5927\u90CE\u80FD\u6EDA\u51FA\u8FD9\u4E2A\u623F\u95F4\u5230\u738B\u5A46\u5BB6\uFF0C\u4ED6\u4EEC\u597D\u4E0B\u624B\u3002"
+  topic: "\u8B66\u957F\u4E0D\u5728\uFF0C\u8B66\u5C40\u4E00\u7247\u72FC\u85C9\uFF0C\u663E\u7136\u6709\u4EBA\u5728\u641E\u7834\u574F"
   interruptSpeech: 
   isDynamic: 0
   membersName: []
   chatRequest: 0
   isChatting: 0
-  words: 
   getConv: 0
+  request_wait: 0
 --- !u!61 &2078470021
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22319,7 +22232,7 @@ Transform:
   m_Children:
   - {fileID: 636479255}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2079142153
 GameObject:
@@ -22726,15 +22639,15 @@ RectTransform:
   m_GameObject: {fileID: 1398125178921516003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 1398125179330642206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4.8099713, y: 32.884}
+  m_SizeDelta: {x: -8.28, y: 46.697}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1398125178921516003
 GameObject:
@@ -22833,11 +22746,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 20
-    m_MaxSize: 20
+    m_MinSize: 30
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -22861,8 +22774,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.0001884, y: 2.24}
-  m_SizeDelta: {x: 228, y: 73.07}
+  m_AnchoredPosition: {x: -5.0001884, y: 32.18}
+  m_SizeDelta: {x: 228, y: 132.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398125178948801710
 MonoBehaviour:
