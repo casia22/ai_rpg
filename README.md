@@ -19,6 +19,8 @@ project现在使用主要有三部分组成，npc的上帝之手，npc的寻路A
 ### 3.上帝之手
 上帝之手为unity主要代码，在运行调试时先打开python程序后开始。
 将RoomMaker挂载在一块区域上（区域用square等都可），代表触发对话的区域。chatroom中需要初始化位置和事件，作为给后端LLM进行触发的prompt。注意！！位置需要与GodsHand初始化程序中所含位置对应。
+
 将GodsHand挂载在地图上任意物体上（最好不是npc），然后将chatroom拉入。
+
 Speaker挂载在npc上，然后填写对应的npc名字，将npc的对话框挂载。
 
